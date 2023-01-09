@@ -1,6 +1,5 @@
-const https = require('https');
+const http = require('http');
 const esir_salles = require('plannings')
-const fs = require('fs');
 
 let salles = {
     "b42_amphi_l": {
@@ -40,12 +39,7 @@ let salles = {
 
 let esir = new esir_salles.default(salles,"./database.db")
 
-const options = {
-  	key: fs.readFileSync('/root/.getssl/aquabx.ovh/aquabx.ovh.key'),
-  	cert: fs.readFileSync('/root/.getssl/aquabx.ovh/aquabx.ovh.crt')
-};
-
-https.createServer(options, async function (req, res) {
+http.createServer( async function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*')
     try{
         let query = new URLSearchParams( req.url.split("/").pop() );
@@ -72,4 +66,4 @@ https.createServer(options, async function (req, res) {
         res.writeHead(500);
         res.end(error + "\n");
     }
-}).listen(2003);
+}).listen(80);
