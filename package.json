@@ -4,11 +4,10 @@
     "start": "node ./"
   },
   "dependencies": {
-    "plannings": "github:aquabx/salles_esir#module"
+    "plannings": "github:AquaBx/salles_esir#module"
   },
   "name": "salles-api",
   "version": "1.0.0",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cours-ESIR/salles-api.git"
